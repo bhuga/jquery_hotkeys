@@ -1,0 +1,108 @@
+<?php
+# Significant portions of the admin interface here were adapted from the css injector module,
+# available at drupal.org/project/css_injector.
+
+
+function jquery_hotkeys_perm() {
+  return array('use jquery hotkeys','administer jquery hotkeys','use PHP for hotkeys visibility');
+}
+
+function jquery_hotkeys_menu() {
+  $items = array(
+  'admin/settings/jquery_hotkeys' => array(
+    'title' => 'JQuery Hotkeys',
+    'description' => 'Add generic javascript to pages based on hotkeys.',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('jquery_hotkeys_admin_form'),
+    'access arguments' => array('administer jquery hotkeys'),
+    'file' => 'jquery_hotkeys.admin.inc'
+    ),
+  'admin/settings/jquery_hotkeys/edit' => array(
+    'title' => 'Edit Jquery Hotkey',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('jquery_hotkeys_edit'),
+    'access arguments' => array('administer jquery hotkeys'),
+    'file' => 'jquery_hotkeys.admin.inc',
+    'type' => MENU_CALLBACK,
+    ),
+  'admin/settings/jquery_hotkeys/add' => array(
+    'title' => 'Add JQuery Hotkey',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('jquery_hotkeys_edit'),
+    'access arguments' => array('administer jquery hotkeys'),
+    'type' => MENU_CALLBACK,
+    'file' => 'jquery_hotkeys.admin.inc'
+    ),
+  'admin/settings/jquery_hotkeys/delete' => array(
+    'title' => 'Delete Jquery Hotkey',
+    'page callback' => 'drupal_get_form',
+    'page arguments' => array('jquery_hotkeys_delete_confirm'),
+    'access arguments' => array('administer jquery hotkeys'),
+    'type' => MENU_CALLBACK,
+    'file' => 'jquery_hotkeys.admin.inc'
+    ),
+  );
+  return $items;
+}
+
+function jquery_hotkeys_init() {
+  if (!(user_access('use jquery hotkeys'))) {
+    return;
+  }
+
+  $path = drupal_get_path_alias($_GET['q']);
+  # this next bit of logic largely copied wholesale from block.module so that it's consistent for
+  # people to understand the visibility settings.  Some code comments are there if you want them.
+  $hotkeys = jquery_hotkeys_load_hotkeys();
+  if (is_array($hotkeys)) {
+    foreach ($hotkeys as $hotkey) {
+      if ($hotkey['pages']) {
+        if ($hotkey['visibility'] < 2) {
+          $page_match = drupal_match_path($path, $hotkey['pages']);
+          if ($path != $_GET['q']) {
+            $page_match = $page_match || drupal_match_path($_GET['q'], $hotkey['pages']);
+          }
+            $page_match = !($hotkey['visibility'] xor $page_match);
+          }
+        else {
+          $page_match = drupal_eval($hotkey['pages']);
+        }
+      } else {
+        $page_match = TRUE;
+      }
+
+      if ($page_match) {
+        jquery_hotkeys_apply_hotkey($hotkey);
+      }
+    }
+  }
+}
+
+function jquery_hotkeys_apply_hotkey($hotkey) {
+  drupal_add_js(drupal_get_path('module','jquery_hotkeys') .'/jquery.hotkeys.js','module');
+  $js = "$(document).bind('keydown','" .$hotkey['hotkey'] ."',function(evt) { ";
+  $js .= $hotkey['javascript'] .";return false; });";
+  drupal_add_js($js,'inline');
+}
+
+function jquery_hotkeys_load_hotkey($jhid) {
+  $result = db_query("SELECT * FROM {jquery_hotkeys} where jhid=%d",$jhid);
+  return db_fetch_array($result);
+}
+
+function jquery_hotkeys_load_hotkeys() {
+  $hotkeys = array();
+  $result = db_query("SELECT * FROM {jquery_hotkeys}");
+  while ($hotkey = db_fetch_array($result)) {
+    $hotkeys[] = $hotkey;
+  }
+  return $hotkeys;
+}
+
+function jquery_hotkeys_theme() {
+  $items['jquery_hotkeys_admin_form'] = array(
+    'arguments' => array('form' => array()),
+  );
+  return $items;
+}
+

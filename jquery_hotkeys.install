@@ -1,0 +1,44 @@
+<?php
+
+function jquery_hotkeys_schema() {
+  $schema['jquery_hotkeys'] = array(
+    'description' => 'A list of JQuery Hotkey bindings',
+    'fields' => array(
+      'jhid' => array(
+        'description' => 'Primary ID for a hotkey setup',
+        'type' => 'serial',
+        'unsigned' => TRUE,
+        'not null' => TRUE),
+      'visibility' => array(
+        'description' => 'How the pages attribute will be interpreted',
+        'type' => 'int',
+        'size' => 'tiny'),
+      'name' => array(
+        'description' => 'Identifier for this hotkey',
+        'type' => 'varchar',
+        'length' => '128'),
+      'hotkey' => array(
+        'description' => 'The activation hotkey',
+        'type' => 'varchar',
+        'length' => '16'),
+      'javascript' => array(
+        'description' => 'Javascript to be executed for this hotkey',
+        'type' => 'text',
+        'size' => 'normal'),
+      'pages' => array(
+        'description' => 'Pages to be matched against to determine application of this hotkey',
+        'type' => 'text',
+        'size' => 'normal')
+    ),
+    'primary key' => array('jhid')
+  );
+  return $schema;
+}
+
+function jquery_hotkeys_install() {
+  drupal_install_schema('jquery_hotkeys');
+}
+
+function jquery_hotkeys_uninstall() {
+  drupal_uninstall_schema('jquery_hotkeys');
+}
