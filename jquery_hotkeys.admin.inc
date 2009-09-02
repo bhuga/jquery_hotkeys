@@ -137,8 +137,6 @@ function jquery_hotkeys_delete_confirm(&$form_state, $jhid) {
 }
 
 function jquery_hotkeys_delete_confirm_submit($form, &$form_state) {
-  #dprint_r($form);
-  #dprint_r($form_state);
   $hotkey = jquery_hotkeys_load_hotkey($form_state['values']['jhid']);
   if ($form_state['values']['confirm']) {
     db_query('DELETE FROM {jquery_hotkeys} where jhid = %d', $hotkey['jhid']);
