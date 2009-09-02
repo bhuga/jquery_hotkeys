@@ -42,7 +42,6 @@ function theme_jquery_hotkeys_admin_form(&$form) {
 
 function jquery_hotkeys_admin_form() {
   $hotkeys = jquery_hotkeys_load_hotkeys();
-  $path = drupal_get_path('module', 'jquery_hotkeys') .'/';
   $form = array();
   $form['#tree'] = TRUE;
   foreach ($hotkeys as $hotkey) {
@@ -108,7 +107,7 @@ function jquery_hotkeys_edit($form_state, $jhid = NULL) {
   $form['buttons']['save'] = array(
     '#type' => 'submit',
     '#submit' => array('jquery_hotkeys_edit_save'),
-    '#value' => t('Save Changes'),
+    '#value' => t('Save changes'),
   );
 
   return $form; 
