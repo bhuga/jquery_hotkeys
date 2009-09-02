@@ -18,7 +18,7 @@ function jquery_hotkeys_menu() {
     'file' => 'jquery_hotkeys.admin.inc'
     ),
   'admin/settings/jquery_hotkeys/edit' => array(
-    'title' => 'Edit Jquery Hotkey',
+    'title' => 'Edit JQuery Hotkey',
     'page callback' => 'drupal_get_form',
     'page arguments' => array('jquery_hotkeys_edit'),
     'access arguments' => array('administer jquery hotkeys'),
@@ -34,7 +34,7 @@ function jquery_hotkeys_menu() {
     'file' => 'jquery_hotkeys.admin.inc'
     ),
   'admin/settings/jquery_hotkeys/delete' => array(
-    'title' => 'Delete Jquery Hotkey',
+    'title' => 'Delete JQuery Hotkey',
     'page callback' => 'drupal_get_form',
     'page arguments' => array('jquery_hotkeys_delete_confirm'),
     'access arguments' => array('administer jquery hotkeys'),

@@ -1,5 +1,5 @@
 ; $Id$ 
-name = "Jquery Hotkeys"
+name = "JQuery Hotkeys"
 description = "Enables jquery-based keyboard shortcuts for form elements"
 package = Other
 core = 6.x
