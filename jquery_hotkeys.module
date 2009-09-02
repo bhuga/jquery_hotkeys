@@ -8,13 +8,13 @@
 
 
 function jquery_hotkeys_perm() {
-  return array('use JQuery hotkeys', 'administer JQuery hotkeys', 'use PHP for hotkeys visibility');
+  return array('use jQuery hotkeys', 'administer jQuery hotkeys', 'use PHP for hotkeys visibility');
 }
 
 function jquery_hotkeys_menu() {
   $items = array(
   'admin/settings/jquery_hotkeys' => array(
-    'title' => 'JQuery Hotkeys',
+    'title' => 'jQuery Hotkeys',
     'description' => 'Add generic javascript to pages based on hotkeys.',
     'page callback' => 'drupal_get_form',
     'page arguments' => array('jquery_hotkeys_admin_form'),
@@ -22,7 +22,7 @@ function jquery_hotkeys_menu() {
     'file' => 'jquery_hotkeys.admin.inc'
     ),
   'admin/settings/jquery_hotkeys/edit' => array(
-    'title' => 'Edit JQuery Hotkey',
+    'title' => 'Edit jQuery Hotkey',
     'page callback' => 'drupal_get_form',
     'page arguments' => array('jquery_hotkeys_edit'),
     'access arguments' => array('administer jquery hotkeys'),
@@ -30,7 +30,7 @@ function jquery_hotkeys_menu() {
     'type' => MENU_CALLBACK,
     ),
   'admin/settings/jquery_hotkeys/add' => array(
-    'title' => 'Add JQuery Hotkey',
+    'title' => 'Add jQuery Hotkey',
     'page callback' => 'drupal_get_form',
     'page arguments' => array('jquery_hotkeys_edit'),
     'access arguments' => array('administer jquery hotkeys'),
@@ -38,7 +38,7 @@ function jquery_hotkeys_menu() {
     'file' => 'jquery_hotkeys.admin.inc'
     ),
   'admin/settings/jquery_hotkeys/delete' => array(
-    'title' => 'Delete JQuery Hotkey',
+    'title' => 'Delete jQuery Hotkey',
     'page callback' => 'drupal_get_form',
     'page arguments' => array('jquery_hotkeys_delete_confirm'),
     'access arguments' => array('administer jquery hotkeys'),

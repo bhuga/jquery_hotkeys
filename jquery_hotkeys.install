@@ -2,7 +2,7 @@
 
 function jquery_hotkeys_schema() {
   $schema['jquery_hotkeys'] = array(
-    'description' => 'A list of JQuery Hotkey bindings',
+    'description' => 'A list of jQuery Hotkey bindings',
     'fields' => array(
       'jhid' => array(
         'description' => 'Primary ID for a hotkey setup',

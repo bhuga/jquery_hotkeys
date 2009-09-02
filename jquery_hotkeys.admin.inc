@@ -23,7 +23,7 @@ function theme_jquery_hotkeys_admin_form(&$form) {
   $row = array();
   if (empty($rows)) {
     $row[] = array(
-      'data' => t('No JQuery Hotkeys have been set up yet. !url.', array('!url' => $link)),
+      'data' => t('No jQuery Hotkeys have been set up yet. !url.', array('!url' => $link)),
       'colspan' => 3,
     );
   } 
