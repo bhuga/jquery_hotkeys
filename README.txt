@@ -1,5 +1,5 @@
 jquery_hotkeys supports generic javascript actions in response to hotkey presses via 
-the jquery hotkeys module, available from http://code.google.com/p/js-hotkeys/
+the jQuery hotkeys module, available from http://code.google.com/p/js-hotkeys/
 
 After enabling the correct permissions, you'll be able to add generic hotkeys.  You'll
 need some familiarity with javascript to make use of them.  A few examples:

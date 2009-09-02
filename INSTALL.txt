@@ -1,4 +1,4 @@
-For this module to work, you'll need to download a version of jquery hotkeys and create
+For this module to work, you'll need to download a version of jQuery hotkeys and create
 a symlink at jquery.hotkeys.js for the module to load.  For example, to install the
 minified version of 0.7.9 on *nix:
 
