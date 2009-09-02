@@ -1,10 +1,16 @@
 <?php
-# Significant portions of the admin interface here were adapted from the css injector module,
-# available at drupal.org/project/css_injector.
+// $Id$
+// Significant portions of the admin interface here were adapted from the css injector module,
+// available at drupal.org/project/css_injector.
+/**
+ * @file
+ * A module for inserting javascript to work with jQuery Hotkeys
+ *
+*/
 
 
 function jquery_hotkeys_perm() {
-  return array('use jquery hotkeys','administer jquery hotkeys','use PHP for hotkeys visibility');
+  return array('use JQuery hotkeys', 'administer JQuery hotkeys', 'use PHP for hotkeys visibility');
 }
 
 function jquery_hotkeys_menu() {
@@ -51,8 +57,8 @@ function jquery_hotkeys_init() {
   }
 
   $path = drupal_get_path_alias($_GET['q']);
-  # this next bit of logic largely copied wholesale from block.module so that it's consistent for
-  # people to understand the visibility settings.  Some code comments are there if you want them.
+  // this next bit of logic largely copied wholesale from block.module so that it's consistent for
+  // people to understand the visibility settings.  Some code comments are there if you want them.
   $hotkeys = jquery_hotkeys_load_hotkeys();
   if (is_array($hotkeys)) {
     foreach ($hotkeys as $hotkey) {
@@ -67,7 +73,8 @@ function jquery_hotkeys_init() {
         else {
           $page_match = drupal_eval($hotkey['pages']);
         }
-      } else {
+      } 
+      else {
         $page_match = TRUE;
       }
 
@@ -79,14 +86,14 @@ function jquery_hotkeys_init() {
 }
 
 function jquery_hotkeys_apply_hotkey($hotkey) {
-  drupal_add_js(drupal_get_path('module','jquery_hotkeys') .'/jquery.hotkeys.js','module');
+  drupal_add_js(drupal_get_path('module', 'jquery_hotkeys') .'/jquery.hotkeys.js', 'module');
   $js = "$(document).bind('keydown','" .$hotkey['hotkey'] ."',function(evt) { ";
   $js .= $hotkey['javascript'] .";return false; });";
-  drupal_add_js($js,'inline');
+  drupal_add_js($js, 'inline');
 }
 
 function jquery_hotkeys_load_hotkey($jhid) {
-  $result = db_query("SELECT * FROM {jquery_hotkeys} where jhid=%d",$jhid);
+  $result = db_query("SELECT * FROM {jquery_hotkeys} WHERE jhid=%d", $jhid);
   return db_fetch_array($result);
 }
 
