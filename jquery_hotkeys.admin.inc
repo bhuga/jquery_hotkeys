@@ -29,7 +29,7 @@ function theme_jquery_hotkeys_admin_form(&$form) {
   } 
   else {
     $row[] = array(
-      'data' => t('!url.', array('!url' => $link)),
+      'data' => $link,
       'colspan' => 3,
     );
   }
@@ -82,14 +82,14 @@ function jquery_hotkeys_edit($form_state, $jhid = NULL) {
     '#default_value' => $hotkey['hotkey'],
     '#title' => t('Hotkey'),
     '#required' => TRUE,
-    '#description' => t('The key to bind this javascript to.  See http://code.google.com/p/js-hotkeys for more information.'),
+    '#description' => t('The key to bind this Javascript to.  See http://code.google.com/p/js-hotkeys for more information.'),
   ); 
   $form['javascript'] = array(
     '#type' => 'textarea',
     '#default_value' => $hotkey['javascript'],
     '#title' => t('Javascript'),
     '#required' => TRUE,
-    '#description' => t('The javascript to be executed when this hotkey is pressed.'),
+    '#description' => t('The Javascript to be executed when this hotkey is pressed.'),
   );
   $form['visibility'] = array(
     '#type' => 'radios',
