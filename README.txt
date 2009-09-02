@@ -16,3 +16,8 @@ Pages: node/*
 
 Please be aware that you can possibly open your site to security problems with
 poorly considered javascript.
+
+CREDITS
+Significant portions of the admin interface here were adapted from the css injector module,
+available at drupal.org/project/css_injector.
+

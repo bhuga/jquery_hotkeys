@@ -1,7 +1,5 @@
 <?php
 // $Id$
-// Significant portions of the admin interface here were adapted from the css injector module,
-// available at drupal.org/project/css_injector.
 /**
  * @file
  * Admin functions for jQuery Hotkeys.
