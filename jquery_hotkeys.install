@@ -39,6 +39,10 @@ function jquery_hotkeys_install() {
   drupal_install_schema('jquery_hotkeys');
 }
 
+function jquery_hotkeys_enable() {
+  drupal_set_message(t('jQuery hotkeys installed.  Please <a href="@perms">set permissions</a> and view the <a href="@settings">configuration settings</a>.', array('@perms' => url('admin/user/permissions',array('fragment' => 'module-jquery-hotkeys')), '@settings' => url('admin/settings/jquery_hotkeys'))));
+}
+
 function jquery_hotkeys_uninstall() {
   drupal_uninstall_schema('jquery_hotkeys');
 }
