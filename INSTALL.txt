@@ -8,8 +8,8 @@ module to load. For example, to install the minified version of 0.7.9 on
   # wget http://js-hotkeys.googlecode.com/files/jquery.hotkeys-0.7.9.min.js
   # ln -s jquery.hotkeys-0.7.9.min.js jquery.hotkeys.js
 
-In case you are using Git for revision control in your project and you'd
-like directly pull in the development version of the plugin, do:
+In case you are using Git for revision control in your Drupal project and
+you'd like to directly pull in the development version of the plugin, do:
 
   # git submodule add git://github.com/tzuryby/jquery.hotkeys.git \
     sites/all/modules/jquery_hotkeys/vendor/js-hotkeys
