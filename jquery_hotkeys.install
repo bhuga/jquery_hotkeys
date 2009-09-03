@@ -1,5 +1,5 @@
 <?php
-
+// $Id$
 function jquery_hotkeys_schema() {
   $schema['jquery_hotkeys'] = array(
     'description' => 'A list of jQuery Hotkey bindings',

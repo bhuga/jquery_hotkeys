@@ -1,3 +1,4 @@
+// $Id$
 jquery_hotkeys supports generic javascript actions in response to hotkey presses via 
 the jQuery hotkeys module, available from http://code.google.com/p/js-hotkeys/
 
