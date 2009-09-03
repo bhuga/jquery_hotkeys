@@ -82,14 +82,14 @@ function jquery_hotkeys_edit($form_state, $jhid = NULL) {
     '#default_value' => $hotkey['hotkey'],
     '#title' => t('Hotkey'),
     '#required' => TRUE,
-    '#description' => t('The key to bind this Javascript to.  See http://code.google.com/p/js-hotkeys for more information.'),
+    '#description' => t('The key to bind this JavaScript to.  See http://code.google.com/p/js-hotkeys for more information.'),
   ); 
   $form['javascript'] = array(
     '#type' => 'textarea',
     '#default_value' => $hotkey['javascript'],
-    '#title' => t('Javascript'),
+    '#title' => t('JavaScript'),
     '#required' => TRUE,
-    '#description' => t('The Javascript to be executed when this hotkey is pressed.'),
+    '#description' => t('The JavaScript code to be executed when this hotkey is pressed.'),
   );
   $form['visibility'] = array(
     '#type' => 'radios',
