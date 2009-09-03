@@ -1,5 +1,5 @@
 ; $Id$ 
 name = "jQuery Hotkeys"
-description = "Enables jQuery-based keyboard shortcuts for form elements"
-package = Other
+description = "Enables jQuery-based keyboard shortcuts for form elements."
+package = jQuery
 core = 6.x
