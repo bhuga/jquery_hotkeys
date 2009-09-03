@@ -92,8 +92,7 @@ function jquery_hotkeys_apply_hotkey($hotkey) {
 }
 
 function jquery_hotkeys_load_hotkey($jhid) {
-  $result = db_query("SELECT * FROM {jquery_hotkeys} WHERE jhid=%d", $jhid);
-  return db_fetch_array($result);
+  return db_fetch_array(db_query("SELECT * FROM {jquery_hotkeys} WHERE jhid=%d", $jhid));
 }
 
 function jquery_hotkeys_load_hotkeys() {
@@ -102,6 +101,7 @@ function jquery_hotkeys_load_hotkeys() {
   while ($hotkey = db_fetch_array($result)) {
     $hotkeys[] = $hotkey;
   }
+  drupal_alter('jquery_hotkeys', $hotkeys);
   return $hotkeys;
 }
 
