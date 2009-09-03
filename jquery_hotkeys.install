@@ -22,7 +22,7 @@ function jquery_hotkeys_schema() {
         'type' => 'varchar',
         'length' => '16'),
       'javascript' => array(
-        'description' => 'Javascript to be executed for this hotkey',
+        'description' => 'JavaScript code to be executed for this hotkey',
         'type' => 'text',
         'size' => 'normal'),
       'pages' => array(

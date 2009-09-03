@@ -2,7 +2,7 @@
 // $Id$
 /**
  * @file
- * A module for inserting javascript to work with jQuery Hotkeys
+ * A module for inserting JavaScript to work with jQuery Hotkeys
  *
 */
 
@@ -15,7 +15,7 @@ function jquery_hotkeys_menu() {
   $items = array(
   'admin/settings/jquery_hotkeys' => array(
     'title' => 'jQuery Hotkeys',
-    'description' => 'Add generic javascript to pages based on hotkeys.',
+    'description' => 'Add generic JavaScript to pages based on hotkeys.',
     'page callback' => 'drupal_get_form',
     'page arguments' => array('jquery_hotkeys_admin_form'),
     'access arguments' => array('administer jquery hotkeys'),
