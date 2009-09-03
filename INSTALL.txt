@@ -1,8 +1,16 @@
 // $Id$
 
-For this module to work, you'll need to download a version of jQuery hotkeys
-and create a symlink at jquery.hotkeys.js for the module to load.  For
-example, to install the minified version of 0.7.9 on *nix:
+For this module to work, you'll need to download a version of the
+jQuery.hotkeys plugin and create a symlink at jquery.hotkeys.js for the
+module to load. For example, to install the minified version of 0.7.9 on
+*nix:
 
-wget http://js-hotkeys.googlecode.com/files/jquery.hotkeys-0.7.9.min.js
-ln -s jquery.hotkeys-0.7.9.min.js jquery.hotkeys.js
+  # wget http://js-hotkeys.googlecode.com/files/jquery.hotkeys-0.7.9.min.js
+  # ln -s jquery.hotkeys-0.7.9.min.js jquery.hotkeys.js
+
+In case you are using Git for revision control in your project and you'd
+like directly pull in the development version of the plugin, do:
+
+  # git submodule add git://github.com/tzuryby/jquery.hotkeys.git \
+    sites/all/modules/jquery_hotkeys/vendor/js-hotkeys
+  # ln -s vendor/js-hotkeys/jquery.hotkeys.js jquery.hotkeys.js
