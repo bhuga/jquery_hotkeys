@@ -13,9 +13,9 @@ function theme_jquery_hotkeys_admin_form(&$form) {
     foreach (element_children($form['hotkeys']) as $jhid) {
       $row = array();
       $hotkey = $form['hotkeys'][$jhid]['#hotkey'];
-      $row[] = l($hotkey['name'], 'admin/settings/jquery_hotkeys/edit/' .$hotkey['jhid']);
-      $row[] = l(t('Edit'), 'admin/settings/jquery_hotkeys/edit/' .$hotkey['jhid']);
-      $row[] = l(t('Delete'), 'admin/settings/jquery_hotkeys/delete/' .$hotkey['jhid']);
+      $row[] = isset($hotkey['module']) ? $hotkey['name'] : l($hotkey['name'], 'admin/settings/jquery_hotkeys/edit/' .$hotkey['jhid']);
+      $row[] = isset($hotkey['module']) ? '-' : l(t('edit'), 'admin/settings/jquery_hotkeys/edit/' .$hotkey['jhid']);
+      $row[] = isset($hotkey['module']) ? '-' : l(t('delete'), 'admin/settings/jquery_hotkeys/delete/' .$hotkey['jhid']);
       $rows[] = $row;
     }
   }
