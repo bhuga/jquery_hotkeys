@@ -50,7 +50,7 @@ function jquery_hotkeys_menu() {
 }
 
 function jquery_hotkeys_init() {
-  if (!(user_access('use jquery hotkeys'))) {
+  if (!(user_access('use jQuery hotkeys'))) {
     return;
   }
 
